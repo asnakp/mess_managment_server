@@ -34,7 +34,7 @@ module.exports = {
                             mobile:obj.mobile,
                             dob:obj.dob,
                             gender:obj.gender,
-                            // userType: obj.userType,
+                            userType: obj.userType,
                             password : passObj.hash,
                             prePassword: passObj.salt,
                             datCreateDateAndTime: new Date(),
@@ -83,6 +83,7 @@ module.exports = {
             try {
          
                 db.collection(config.USER_COLLECTION).findOne({email: obj.email}, (err, doc) => {
+                    console.log("aSGXC  ----",doc)
                     if (err) throw err;
                     if (!doc) {
                         resolve({success: false, message: 'The email address is invalid', data: arryEmpty});
