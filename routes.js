@@ -8,6 +8,7 @@ module.exports = function(app, db) {
     require('./server/service/category')(app, db);
     require('./server/service/subcategory')(app, db);
     require('./server/service/products')(app, db);
+    require('./server/service/order')(app, db);
     
     
     
