@@ -16,11 +16,16 @@ module.exports = {
     funSaveSubcategory: InsertSaveSubcategoryDetails = (obj, db) => {
         return new Promise((resolve, reject) => {
             try {
+            if(obj &&  obj.category  &&  obj.category._id ){
+                obj.category._id = ObjectID(obj.category._id) 
+            }
               console.log("sadjhxb ---",obj)
                 const newObject = {
                     pkIntSubcategoryId:ObjectID(),
-                    name:obj.name,
-                    fkIntCategoryId:obj.IntCategoryId,
+                    name : obj.name,
+                    logoUrl:obj.logoUrl,
+                    category:obj.category,
+                    fkCategoryId:ObjectID(obj.category._id),
                     fkIntCreateUserId: ObjectID(obj.intLoginUserId),
                     datCreateDateAndTime: new Date(),
                     datLastModifiedDateTime: null,
@@ -50,15 +55,19 @@ module.exports = {
         console.log("funUpdateSubcategoryDetails ---",obj)
         return new Promise((resolve, reject) => {
             try {
-                  
+                if(obj &&  obj.category  &&  obj.category._id ){
+                    obj.category._id = ObjectID(obj.category._id) 
+                }
                 let intSubcategoryId = obj.intSubcategoryId;
 
                 var match = {$match: {_id: ObjectID(intSubcategoryId)}};
                 db.collection(config.SUBCATEGORY_COLLECTION).aggregate([match, strQryCount]).toArray().then((response) => {
                     if (response.length) {
                         const newObject = {
-                            IntCategoryId:obj.IntCategoryId,
-                            name:obj.name,
+                            name : obj.name,
+                            logoUrl:obj.logoUrl,
+                            category:obj.category,
+                            fkCategoryId:ObjectID(obj.category._id),
                             datLastModifiedDateTime: new Date()
                            
                         };

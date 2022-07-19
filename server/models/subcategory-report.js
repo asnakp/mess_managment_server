@@ -23,7 +23,10 @@ module.exports = {
             
                 var Project = { $project : {
                     _id:"$_id",
-                    name:"$name"
+                    name:"$name",
+                    logoUrl:"$logoUrl",
+                    category:"$category",
+                    categoryId:"$fkCategoryId"
                     
                 }};
     
@@ -109,7 +112,10 @@ module.exports = {
     
                     var Project = { $project : {
                         _id:"$_id",
-                        name:"$name"
+                        name:"$name",
+                        logoUrl:"$logoUrl",
+                        category:"$category",
+                        categoryId:"$fkCategoryId"
                         // time: "$time",
                         // date:"$date", 
                         // status:"$bookingStatus", 
