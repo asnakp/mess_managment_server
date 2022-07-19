@@ -20,12 +20,12 @@ module.exports = {
                 const newObject = {
                     pkIntCategoryId:ObjectID(),
                     name:obj.name,
+                    logoUrl:obj.logoUrl,
                     fkIntCreateUserId: ObjectID(obj.intLoginUserId),
                     datCreateDateAndTime: new Date(),
                     datLastModifiedDateTime: null,
                     fkIntLastModifiedId: null,
                     strStatus: 'N'
-                    
                 };
 
                 db.collection(config.CATEGORY_COLLECTION).insert(newObject, (err, doc) => {
@@ -58,6 +58,7 @@ module.exports = {
                         const newObject = {
 
                             name:obj.name,
+                            logoUrl:obj.logoUrl,
                             datLastModifiedDateTime: new Date()
                            
                         };

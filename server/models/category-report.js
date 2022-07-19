@@ -24,7 +24,8 @@ module.exports = {
             
                 var Project = { $project : {
                     _id:"$_id",
-                    name:"$name"
+                    name:"$name",
+                    logoUrl:"$logoUrl"
                     
                 }};
     
@@ -109,7 +110,8 @@ module.exports = {
     
                     var Project = { $project : {
                         _id:"$_id",
-                        name:"$name"
+                        name:"$name",
+                        logoUrl:"$logoUrl"
                         // time: "$time",
                         // date:"$date", 
                         // status:"$bookingStatus", 
