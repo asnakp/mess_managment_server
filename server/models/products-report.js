@@ -109,11 +109,12 @@ module.exports = {
     
                     var Project = { $project : {
                         _id:"$_id",
-                        name:"$name"
-                        // time: "$time",
-                        // date:"$date", 
-                        // status:"$bookingStatus", 
-                        // address:"$address", 
+                        name:"$name",
+                        logoUrl: "$logoUrl",
+                        category:"$category", 
+                        subcategory:"$subcategory", 
+                        price:"$price", 
+                        description:"$description", 
                         // "objService":"$arrayOfService", 
                         // "objUser":"$arrayOfUser"
                     }};
