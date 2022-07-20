@@ -25,6 +25,10 @@ module.exports = {
                     subcategory:obj.subcategory,
                     price:obj.price,
                     description:obj.description,
+
+                    fkCategoryId: ObjectID(obj.category._id),
+                    fkSubCategoryId: ObjectID(obj.subcategory._id),
+
                     fkIntCreateUserId: ObjectID(obj.intLoginUserId),
                     datCreateDateAndTime: new Date(),
                     datLastModifiedDateTime: null,
@@ -63,6 +67,14 @@ module.exports = {
                         const newObject = {
 
                             name:obj.name,
+                            logoUrl:obj.logoUrl,
+                            category:obj.category,
+                            subcategory:obj.subcategory,
+                            price:obj.price,
+                            description:obj.description,
+        
+                            fkCategoryId: ObjectID(obj.category._id),
+                            fkSubCategoryId: ObjectID(obj.subcategory._id),
                             datLastModifiedDateTime: new Date()
                            
                         };

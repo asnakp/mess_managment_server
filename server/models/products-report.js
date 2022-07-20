@@ -23,7 +23,14 @@ module.exports = {
             
                 var Project = { $project : {
                     _id:"$_id",
-                    name:"$name"
+                    name:"$name",
+                    logoUrl: "$logoUrl",
+                    category:"$category", 
+                    subcategory:"$subcategory", 
+                    price:"$price", 
+                    description:"$description", 
+                    "fkCategoryId":"$fkCategoryId", 
+                    "fkSubCategoryId":"$fkSubCategoryId"
                     
                 }};
     
@@ -115,8 +122,8 @@ module.exports = {
                         subcategory:"$subcategory", 
                         price:"$price", 
                         description:"$description", 
-                        // "objService":"$arrayOfService", 
-                        // "objUser":"$arrayOfUser"
+                        "fkCategoryId":"$fkCategoryId", 
+                        "fkSubCategoryId":"$fkSubCategoryId"
                     }};
         
                     db.collection(config.PRODUCTS_COLLECTION).find(query).count()
