@@ -18,7 +18,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             try {
 
-                var checkQuery = ({$or: [ { email:obj.email },{ userName: obj.userName} ]});
+                var checkQuery = ({$or: [ { email:obj.email } ]});
                 db.collection(config.USER_COLLECTION).find(checkQuery).toArray( (err,user) => {
                     if(user && user.length){
                         resolve({ success: false, message: 'Email or User Name Already Exists',data:[] });

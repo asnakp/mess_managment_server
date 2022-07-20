@@ -18,6 +18,8 @@ module.exports = (app, db) => {
     app.post('/api/auth/signup' ,(req,res) =>  { 
         try{
              var obj = req.body;
+             console.log("jawad",obj);
+
              var strActionType ="SAVE";
              
              if(common.isEmptyObject(obj)) {    
