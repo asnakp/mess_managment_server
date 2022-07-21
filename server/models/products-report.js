@@ -202,7 +202,7 @@ module.exports = {
                                     var objTotal ={intTotalCount :totalPageCount};
                                     arrayAllObjData.push(doc);
                                     arrayAllObjData.push(objTotal);
-                                    resolve({success: true,message: 'Successfully.', data: doc[0]});
+                                    resolve({success: true,message: 'Successfully.', data: doc});
                                 }
         
                             });
