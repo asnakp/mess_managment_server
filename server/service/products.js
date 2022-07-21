@@ -192,6 +192,29 @@ module.exports = (app, db) => {
         }
     });
 
+
+    app.post('/api/products/getByCategoryId',(req,res) => {
+        try{
+            var obj = req.body
+            console.log("here data",obj)
+            if(!obj){
+                res.json({success: false, message: 'Params missing',data:arryEmpty});
+            } else {
+                REPORT.funGetByCategoryId(obj,db).then(( result )=>{
+                    if(result && result.success === true) {
+                        res.status(200).json(result)
+                    }else {
+                        res.status(200).json(result)
+                    }
+                });
+            }
+        }catch (e) {
+            console.log("Error",e);
+            res.status(500).json({success: false, message: "Error:"+e, data:arryEmpty});
+        }
+    });
+
+
 } 
 
 
