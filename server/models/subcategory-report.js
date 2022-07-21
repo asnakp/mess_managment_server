@@ -157,4 +157,27 @@ module.exports = {
         
         },
 
+        funGetSubcategoryWithId:funGetSubcategoryWithId=(obj,db)=> {
+            return new Promise((resolve, reject) => {
+                try{
+                    if(obj.categoryId){
+                        var strWhere ={$match:{fkCategoryId:ObjectID(obj.categoryId)}};
+                        var Project = { $project :{name:"$name",logoUrl:"$logoUrl",category:"$category",_id:"$_id"}};
+                        var sort = {$sort:{name:1}}
+                        db.collection(config.SUBCATEGORY_COLLECTION).aggregate([strWhere,Project,sort]).toArray( (err, doc)  => {
+                            if (err) throw err;
+                            resolve({success: true,message: 'Successfully.', data: doc});
+                        });
+                        
+                    } else {
+                        resolve({success: false,message: 'No data found', data:arryEmpty});
+                      
+                    }
+    
+                } catch (e) {
+                    throw resolve( { success: false, message: 'System '+e, data: arryEmpty });
+                }
+            });
+        },
+
 }
