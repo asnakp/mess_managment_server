@@ -4,7 +4,6 @@ const express = require('express');
 var arryEmpty = [];
 var ObjectID = require("mongodb").ObjectID;
 module.exports = {
-
   
        //This function listing details from subcategory form.
     funGetAllProductsDetails: GetAllProductsDetails=(obj,db)=> {
