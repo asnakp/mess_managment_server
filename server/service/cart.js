@@ -75,13 +75,13 @@ module.exports = (app, db) => {
     TODO:This api use List booking details in Data Base
     @Function: Listing booking details Data
     */
-    app.post('/api/cart/getCartDetails ',common.verifyToken,(req,res) => {
+    app.post('/api/cart/getCartDetails',(req,res) => {
         try{
             var obj = req.body
             if(!obj){
                 res.json({success: false, message: 'Params missing',data:arryEmpty});
             } else {
-                CARTREPORT.funGetAllCartDetails(obj,db).then(( result )=>{
+                CARTREPORT.funGetByUserIdDetails(obj,db).then(( result )=>{
                     if(result && result.success === true) {
                         res.status(200).json(result)
                     }else {

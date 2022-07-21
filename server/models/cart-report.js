@@ -21,12 +21,13 @@ module.exports = {
                         intSkipCount = parseInt(obj.intSkipCount);
                     if(obj.intPageLimit)
                         intPageLimit = parseInt(obj.intPageLimit);
-    
-         
-    
+                        
                     var Project = { $project : {
                         _id:"$_id",
-                        product:"$product"
+                        product:"$product",
+                        name:"$name",
+                        price:"$price",
+                        logoUrl:"$logoUrl",
                     
                     }};
         
