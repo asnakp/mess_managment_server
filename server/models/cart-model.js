@@ -20,6 +20,11 @@ module.exports = {
                 const newObject = {
                     pkIntCartId:ObjectID(),
                     product:obj.product,
+
+                    price:obj.product.price,
+                    name:obj.product.name,
+                    logoUrl:obj.product.logoUrl,
+
                     fkIntCreateUserId: ObjectID(obj.intLoginUserId),
                     datCreateDateAndTime: new Date(),
                     datLastModifiedDateTime: null,
