@@ -9,7 +9,7 @@ module.exports = {
     SERVICES_COLLECTION : 'cln_services',
     BOOKING_COLLECTION : 'cln_booking',
     CATEGORY_COLLECTION : 'cln_category',
-    CATEGORY_COLLECTION : 'cln_category',
+    SUBCATEGORY_COLLECTION : 'cln_category',
     CART_COLLECTION:'cln_cart',
     PRODUCTS_COLLECTION:'cln_products',
     JWT_SECRET: 'WeQaY&%$#@*&'
