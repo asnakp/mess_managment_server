@@ -15,5 +15,5 @@ module.exports = {
     JWT_SECRET: 'WeQaY&%$#@*&'
 
     
-
+ 
 };
