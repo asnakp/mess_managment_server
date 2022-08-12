@@ -221,4 +221,61 @@ module.exports = {
     },
     
 
+    funGetByCategoryView: GetByCategoryView=(obj,db)=> {
+            return new Promise((resolve, reject) => {
+                try{
+                    var arrayAllObjData =[];
+                    var query= { strStatus: "N",status:"Top Category" }
+                    
+                    var intSkipCount =0;
+                    var intPageLimit =0;
+                    if(obj.intSkipCount)
+                        intSkipCount = parseInt(obj.intSkipCount);
+                    if(obj.intPageLimit)
+                        intPageLimit = parseInt(obj.intPageLimit);
+    
+                
+                    var Project = { $project : {
+                        _id:"$_id",
+                        name:"$name",
+                        logoUrl: "$logoUrl",
+                        category:"$category", 
+                        subcategory:"$subcategory", 
+                        price:"$price", 
+                        description:"$description", 
+                        status:"$status",
+                        "fkCategoryId":"$fkCategoryId", 
+                        "fkSubCategoryId":"$fkSubCategoryId"
+                        
+                    }};
+        
+                    db.collection(config.PRODUCTS_COLLECTION).find(query).count()
+                        .then((totalPageCount) => {
+                            if(totalPageCount){
+                                if(!intPageLimit)
+                                    intPageLimit =parseInt(totalPageCount);
+                                db.collection(config.PRODUCTS_COLLECTION).aggregate([{$match:query},
+                                    {$sort:{date:-1}},
+                                    { "$skip": intSkipCount }, { "$limit": intPageLimit },
+                                    Project
+                                ]).toArray( (err,doc) => {
+                                    if (err) throw err;
+                                    if(doc){
+                                        var objTotal ={intTotalCount :totalPageCount};
+                                        arrayAllObjData.push(doc);
+                                        arrayAllObjData.push(objTotal);
+                                        resolve({success: true,message: 'Successfully.', data: arrayAllObjData});
+                                    }
+            
+                                });
+                            } else {
+                                resolve({success: false, message: ' No Data Found', data: arryEmpty});
+                            }
+                        })
+            
+                } catch (e) {
+                    throw resolve( { success: false, message: 'System '+e, data: arryEmpty });
+                }
+            });
+        },
 }
