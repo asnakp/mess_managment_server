@@ -28,6 +28,7 @@ module.exports = {
                     subcategory:"$subcategory", 
                     price:"$price", 
                     description:"$description", 
+                    status:"$status",
                     "fkCategoryId":"$fkCategoryId", 
                     "fkSubCategoryId":"$fkSubCategoryId"
                     
@@ -120,7 +121,8 @@ module.exports = {
                     category:"$category", 
                     subcategory:"$subcategory", 
                     price:"$price", 
-                    description:"$description", 
+                    description:"$description",
+                    status:"$status", 
                     "fkCategoryId":"$fkCategoryId", 
                     "fkSubCategoryId":"$fkSubCategoryId"
                 }};
@@ -180,6 +182,7 @@ module.exports = {
                     subcategory:"$subcategory", 
                     price:"$price", 
                     description:"$description", 
+                    status:"$status",
                     "fkCategoryId":"$fkCategoryId", 
                     "fkSubCategoryId":"$fkSubCategoryId"
                 }};

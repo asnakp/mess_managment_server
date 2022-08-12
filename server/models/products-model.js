@@ -25,6 +25,7 @@ module.exports = {
                     subcategory:obj.subcategory,
                     price:obj.price,
                     description:obj.description,
+                    status:obj.status,
 
                     fkCategoryId: ObjectID(obj.category._id),
                     fkSubCategoryId: ObjectID(obj.subcategory._id),
@@ -72,6 +73,7 @@ module.exports = {
                             subcategory:obj.subcategory,
                             price:obj.price,
                             description:obj.description,
+                            status:obj.status,
         
                             fkCategoryId: ObjectID(obj.category._id),
                             fkSubCategoryId: ObjectID(obj.subcategory._id),
