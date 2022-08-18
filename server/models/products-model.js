@@ -181,10 +181,6 @@ module.exports = {
 },
 
 
-
-
-
-
            //This fucntion validate details from category delete form.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     funProductsValidateDeleteDetails: ProductsValidateDeleteDetails = (strActionType, req, db) => {
         return new Promise((resolve, reject) => {

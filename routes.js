@@ -10,6 +10,7 @@ module.exports = function(app, db) {
     require('./server/service/products')(app, db);
     require('./server/service/order')(app, db);
     require('./server/service/cart')(app, db);
+    require('./server/service/email')(app, db);
 
     require('./server/service/upload/upload')(app, db);
 
