@@ -211,7 +211,7 @@ module.exports = {
                         } else {
                             resolve({success: false, message: ' No Data Found', data: arryEmpty});
                         }
-                    }) 
+                    })
         
             } catch (e) {
                 throw resolve( { success: false, message: 'System '+e, data: arryEmpty });
