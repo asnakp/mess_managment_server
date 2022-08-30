@@ -30,7 +30,7 @@ module.exports = {
 
                 db.collection(config.CATEGORY_COLLECTION).insert(newObject, (err, doc) => {
                     if (err)resolve({success: false, message: 'Booking Creation Failed.', arryEmpty});
-                        else if(doc && doc.ops && doc.ops.length === true) {
+                        else if(doc  && doc.ops && doc.ops.length === true) {
                     }
                     else{
                         resolve({success: true, message: 'Category saved successfully', data: [doc.ops[0]]});
